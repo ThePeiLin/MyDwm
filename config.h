@@ -65,18 +65,20 @@ static const char* lightup[]={ "xbacklight", "-inc", "5", NULL};
 static const char* lightdown[]={ "xbacklight", "-dec", "5", NULL};
 static const char* volup[]={ "amixer", "-qM", "set", "Master", "2%+" , "umute", NULL};
 static const char* voldown[]={ "amixer", "-qM", "set", "Master", "2%-" , "umute", NULL};
-static const char *mute[] = { "amixer", "-qM", "set", "Master", "toggle", NULL };
+static const char* mute[] = { "amixer", "-qM", "set", "Master", "toggle", NULL };
+static const char* screenshot[] = { "flameshot", "gui", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ Mod1Mask|ControlMask,         XK_l,      spawn,          {.v = slockcmd } },
-	{ 0,                            XF86XK_MonBrightnessUp,  spawn, {.v = lightup } },
+	{ 0,                            XF86XK_MonBrightnessUp,   spawn, {.v = lightup } },
 	{ 0,                            XF86XK_MonBrightnessDown, spawn, {.v = lightdown } },
-	{ 0,                            XF86XK_AudioLowerVolume, spawn, {.v = voldown } },
-	{ 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volup } },
-	{ 0,                            XF86XK_AudioMute,        spawn, {.v = mute } },
+	{ 0,                            XF86XK_AudioLowerVolume,  spawn, {.v = voldown } },
+	{ 0,                            XF86XK_AudioRaiseVolume,  spawn, {.v = volup } },
+	{ 0,                            XF86XK_AudioMute,         spawn, {.v = mute } },
+	{ 0,                            XK_Print,                 spawn, {.v = screenshot } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
